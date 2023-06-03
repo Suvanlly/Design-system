@@ -20,7 +20,7 @@ body {
   border-radius: 10px;
 }
 
-.inner {
+.carousel-inner-panel {
   white-space: nowrap;
   transition: transform 0.5s;
   /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
@@ -35,12 +35,12 @@ body {
 }
 
 .carousel-item-text-panel {
-  margin: 160px 0;
+  margin: 160px auto;
   padding: 0 20px;
 }
 
 .carousel-item-text {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   white-space: normal;
   color: #002664;
@@ -72,7 +72,11 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: #002664;
+  color: #1d69b4;
+}
+
+.material-symbols-outlined {
+  font-size: 26px;
 }
 
 .indicators {
@@ -85,15 +89,16 @@ body {
 .indicator-buttons {
   border: none;
   cursor: pointer;
+  color: #1d69b4;
 }
 
 .indicators > button {
-  margin: 5px;
+  margin-right: 5px;
   background: none;
 }
 
 .indicator-symbol {
-  color: #495054;
+  color: #1d69b4;
 }
 
 .indicator-symbol-active {
