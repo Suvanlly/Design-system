@@ -1,5 +1,3 @@
-import React from "react";
-import "./App.css";
 import { Carousel } from "./components/carousel/Carousel";
 
 function App() {

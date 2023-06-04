@@ -1,107 +1,77 @@
-import React, { useState, useEffect } from "react";
-import CarouselItem from "./CarouselItem";
-import "./styles.css";
+import { useState, useEffect } from "react";
+import { CarouselItem } from "./CarouselItem";
+import { CarouselIndicator } from "./CarouselIndicator";
+import carouselItems from "./json/carousel-items.json";
+import "./styles.scss";
 
 export const Carousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAutoplayOn, setIsAutoplayOn] = useState(true);
-  const items = [
-    {
-      title: "Connect",
-      description: "Building a stronger and safer digital society",
-      icon: require("../../assets/images/carousal-img-connect.jpg"),
-    },
-    {
-      title: "Digital",
-      description: "Digital NSW",
-      icon: require("../../assets/images/carousal-img-digital.jpg"),
-    },
-    {
-      title: "Simple",
-      description: "Bringing your digital identity to life",
-      icon: require("../../assets/images/carousal-img-simple.jpg"),
-    },
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
-  const updateIndex = (newIndex: number) => {
-    if (newIndex >= items.length) {
-      newIndex = 0;
-    } else if (newIndex < 0) {
-      newIndex = items.length - 1;
+  const updateIndex = (currentIndex: number) => {
+    if (currentIndex >= carouselItems.length) {
+      currentIndex = 0;
+    } else if (currentIndex < 0) {
+      currentIndex = carouselItems.length - 1;
     }
-    setActiveIndex(newIndex);
-  };
-
-  const handleAutoplayToggle = () => {
-    setIsAutoplayOn(!isAutoplayOn);
+    setCurrentIndex(currentIndex);
   };
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    // ReturnType is needed because the return type of the setTimeout method
+    // is NodeJS.Timeout in Node and number in the browser.
+    // reference: https://bobbyhadz.com/blog/typescript-settimeout-type
+    let timer: ReturnType<typeof setTimeout>;
 
-    if (isAutoplayOn) {
+    if (isAutoPlay) {
       timer = setTimeout(() => {
-        updateIndex(activeIndex + 1);
+        updateIndex(currentIndex + 1);
       }, 2000);
     }
     return () => {
       clearTimeout(timer);
     };
-  }, [activeIndex, isAutoplayOn]);
+  }, [currentIndex, isAutoPlay]);
 
   return (
     <div className="carousel">
       <div
-        className="carousel-inner-panel"
-        style={{ transform: `translate(-${activeIndex * 100}%)` }}
+        className="carousel__content-panel"
+        style={{ transform: `translate(-${currentIndex * 100}%)` }}
       >
-        {items.map((item, index) => {
-          return <CarouselItem key={index} item={item} width={"100%"} />;
-        })}
+        {carouselItems.map((item, index) => (
+          <CarouselItem key={index} item={item} />
+        ))}
       </div>
-      <div className="carousel-buttons">
+      <div className="carousel__indicators-panel">
         <button
-          className="button-arrow"
+          className="carousel__arrow-button"
           onClick={() => {
-            updateIndex(activeIndex - 1);
+            updateIndex(currentIndex - 1);
           }}
         >
-          <span className="material-symbols-outlined">arrow_back_ios</span>{" "}
+          <span className="material-symbols-outlined">arrow_back_ios</span>
         </button>
-        <div className="indicators">
-          {items.map((item, index) => {
-            return (
-              <button
-                key={index}
-                className="indicator-buttons"
-                onClick={() => {
-                  updateIndex(index);
-                }}
-              >
-                <span
-                  className={`material-symbols-outlined ${
-                    index === activeIndex
-                      ? "indicator-symbol-active"
-                      : "indicator-symbol"
-                  }`}
-                >
-                  radio_button_checked
-                </span>
-              </button>
-            );
-          })}
-          <button className="autoplay-toggle indicator-buttons">
-            {isAutoplayOn ? (
+        <div className="carousel__indicators-panel">
+          {carouselItems.map((_, index) => (
+            <CarouselIndicator
+              index={index}
+              currentIndex={currentIndex}
+              updateIndex={updateIndex}
+            />
+          ))}
+          <button className="autoplay-toggle carousel__indicator">
+            {isAutoPlay ? (
               <span
                 className="material-symbols-outlined pause-icon"
-                onClick={handleAutoplayToggle}
+                onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 pause_circle_filled
               </span>
             ) : (
               <span
                 className="material-symbols-outlined play-icon"
-                onClick={handleAutoplayToggle}
+                onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 play_circle
               </span>
@@ -110,9 +80,9 @@ export const Carousel = () => {
         </div>
 
         <button
-          className="button-arrow"
+          className="carousel__arrow-button"
           onClick={() => {
-            updateIndex(activeIndex + 1);
+            updateIndex(currentIndex + 1);
           }}
         >
           <span className="material-symbols-outlined">arrow_forward_ios</span>

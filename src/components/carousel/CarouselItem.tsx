@@ -1,15 +1,19 @@
-import React from "react";
+interface CarouselItemProps {
+  item: item;
+}
 
-const CarouselItem: React.FC<{ item: any, width: string }> = (props) => {
-  return (
-    <div className="carousel-item" key={props.item.id} style={{ width: props.width}}>
-      <img className="carousel-img" src={props.item.icon} alt={props.item.desc}/>
-      <div className="carousel-item-text-panel">
-        <p className="carousel-item-text">{props.item.description}</p>
-        <button className="carousel-info-button">Find out more</button>
-      </div>
+interface item {
+  id: string;
+  description: string;
+  img: string;
+}
+
+export const CarouselItem = ({ item }: CarouselItemProps) => (
+  <div className="carousel__item" key={item.id}>
+    <img className="carousel__item-img" src={item.img} alt={item.description} />
+    <div className="carousel__item-text-panel">
+      <p className="carousel__item-text">{item.description}</p>
+      <button className="carousel__item-info-button">Find out more</button>
     </div>
-  );
-};
-
-export default CarouselItem;
+  </div>
+);
