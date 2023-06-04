@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, KeyboardEvent } from "react";
 import { CarouselItem } from "./CarouselItem";
 import { CarouselIndicator } from "./CarouselIndicator";
-import carouselItems from "./json/carousel-items.json";
+import { CarouselProps } from './Carousel.types'
 import "./styles.scss";
 
-export const Carousel = () => {
+
+export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style = 'light', carouselItems}: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
@@ -17,6 +18,12 @@ export const Carousel = () => {
     setCurrentIndex(currentIndex);
   };
 
+  const handlePause = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (event.code === 'Space') {
+      setIsAutoPlay(!isAutoPlay);
+    }
+  }
+
   useEffect(() => {
     // ReturnType is needed because the return type of the setTimeout method
     // is NodeJS.Timeout in Node and number in the browser.
@@ -26,51 +33,56 @@ export const Carousel = () => {
     if (isAutoPlay) {
       timer = setTimeout(() => {
         updateIndex(currentIndex + 1);
-      }, 2000);
+      }, intervalInSeconds * 1000);
     }
     return () => {
       clearTimeout(timer);
     };
   }, [currentIndex, isAutoPlay]);
 
+  // TODO need to be done by keyboard to move item
+  // Need to be read out by screen readers
+
   return (
-    <div className="carousel">
+    <div className="carousel" role="listbox" aria-label="Carousel">
       <div
         className="carousel__content-panel"
         style={{ transform: `translate(-${currentIndex * 100}%)` }}
       >
         {carouselItems.map((item, index) => (
-          <CarouselItem key={index} item={item} />
+          <CarouselItem key={index} index={index} currentIndex={currentIndex} imagePosition={imagePosition} style={style} item={item} />
         ))}
       </div>
       <div className="carousel__indicators-panel">
         <button
           className="carousel__arrow-button"
+          aria-label="previous button"
           onClick={() => {
             updateIndex(currentIndex - 1);
           }}
         >
           <span className="material-symbols-outlined">arrow_back_ios</span>
         </button>
-        <div className="carousel__indicators-panel">
+        <div>
           {carouselItems.map((_, index) => (
             <CarouselIndicator
+              key={index}
               index={index}
               currentIndex={currentIndex}
               updateIndex={updateIndex}
             />
           ))}
-          <button className="autoplay-toggle carousel__indicator">
+          <button className="autoplay-toggle carousel__indicator" onKeyDown={handlePause}>
             {isAutoPlay ? (
               <span
-                className="material-symbols-outlined pause-icon"
+                className="material-symbols-outlined"
                 onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 pause_circle_filled
               </span>
             ) : (
               <span
-                className="material-symbols-outlined play-icon"
+                className="material-symbols-outlined"
                 onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 play_circle
@@ -81,6 +93,7 @@ export const Carousel = () => {
 
         <button
           className="carousel__arrow-button"
+          aria-label="next button"
           onClick={() => {
             updateIndex(currentIndex + 1);
           }}

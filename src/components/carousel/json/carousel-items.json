@@ -1,17 +1,20 @@
 [
   {
     "id": "58a860a4-0276-11ee-be56-0242ac120002",
-    "description": "Building a stronger and safer digital society",
-    "img": "../../assets/images/carousal-img-connect.jpg"
+    "description": "Building a digital society",
+    "img": "../../assets/images/carousel-img-homepage.jpg",
+    "buttonLabel": "Find out more"
   },
   {
     "id": "58a86306-0276-11ee-be56-0242ac120002",
-    "description": "Digital NSW",
-    "img": "../../assets/images/carousal-img-digital.jpg"
+    "description": "Welcome to Digital NSW",
+    "img": "../../assets/images/carousel-img-digital.jpg",
+    "buttonLabel": "More Information"
   },
   {
     "id": "58a866d0-0276-11ee-be56-0242ac120002",
-    "description": "Bringing your digital identity to life",
-    "img": "../../assets/images/carousal-img-simple.jpg"
+    "description": "Bringing digital to life",
+    "img": "../../assets/images/carousel-img-simple.jpg",
+    "buttonLabel": "View details"
   }
 ]

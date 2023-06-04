@@ -1,0 +1,59 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { useState } from "react";
+import { Carousel } from "./Carousel.tsx";
+
+<Meta
+  title="Carousel"
+  component={Carousel}
+  parameters={{ layout: "centered" }}
+  argTypes={{
+    imagePosition: {
+      options: ["left", "right"],
+      control: { type: "radio" },
+    },
+    style: {
+      options: ["light", "dark"],
+      control: { type: "radio" },
+    },
+  }}
+/>
+
+export const CarouselTemplate = (args) => {
+  return <Carousel {...args} />;
+};
+
+<Canvas>
+  <Story
+    name="Carousel"
+    args={{
+      intervalInSeconds: 2,
+      imagePosition: "right",
+      style: "light",
+      carouselItems: [
+        {
+          id: "58a860a4-0276-11ee-be56-0242ac120002",
+          description: "Building a digital society",
+          img: "../../assets/images/carousel-img-homepage.jpg",
+          buttonLabel: "Find out more",
+        },
+        {
+          id: "58a86306-0276-11ee-be56-0242ac120002",
+          description: "Welcome to Digital NSW",
+          img: "../../assets/images/carousel-img-digital.jpg",
+          buttonLabel: "More Information",
+        },
+        {
+          id: "58a866d0-0276-11ee-be56-0242ac120002",
+          description: "Bringing digital identity to life",
+          img: "../../assets/images/carousel-img-simple.jpg",
+          buttonLabel: "View details",
+        },
+      ],
+    }}
+  >
+    {CarouselTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Carousel" />
