@@ -9,5 +9,6 @@ export interface Item {
   id: string;
   description: string;
   img: string;
+  imgAlt: string;
   buttonLabel: string;
 }

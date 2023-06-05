@@ -76,7 +76,7 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
             {isAutoPlay ? (
               <span
                 className="material-symbols-outlined"
-                aria-label="enable auto play"
+                aria-label="pause auto play"
                 onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 pause_circle_filled
@@ -84,7 +84,7 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
             ) : (
               <span
                 className="material-symbols-outlined"
-                aria-label="pause auto play"
+                aria-label="enable auto play"
                 onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 play_circle

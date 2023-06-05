@@ -24,12 +24,13 @@ export const CarouselItem = ({
     key={item.id}
     role="option"
     aria-live={isAutoPlay ? 'off' : 'polite'}
+    aria-selected={index === currentIndex}
     aria-hidden={index !== currentIndex}
     aria-current={index === currentIndex}
   >
-    <img className="carousel__item-img" src={item.img} alt={item.description} />
+    <img className="carousel__item-img" src={item.img} alt={item.imgAlt} />
     <div className="carousel__item-text-panel">
-      <p className={`carousel__item-text ${style === 'light' ? "carousel__item-text--light" : "carousel__item-text--dark"}`}>{item.description}</p>
+      <p className={`carousel__item-text ${style === 'light' ? "carousel__item-text--light" : "carousel__item-text--dark"}`} aria-label={item.description}>{item.description}</p>
       <button className="carousel__item-info-button">{item.buttonLabel}</button>
     </div>
   </div>

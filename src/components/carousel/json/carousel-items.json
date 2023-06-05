@@ -3,18 +3,21 @@
     "id": "58a860a4-0276-11ee-be56-0242ac120002",
     "description": "Building a digital society",
     "img": "../../assets/images/carousel-img-homepage.jpg",
+    "imgAlt": "Carousel image homepage",
     "buttonLabel": "Find out more"
   },
   {
     "id": "58a86306-0276-11ee-be56-0242ac120002",
     "description": "Welcome to Digital NSW",
     "img": "../../assets/images/carousel-img-digital.jpg",
+    "imgAlt": "Carousel image digital nsw",
     "buttonLabel": "More Information"
   },
   {
     "id": "58a866d0-0276-11ee-be56-0242ac120002",
     "description": "Bringing digital to life",
     "img": "../../assets/images/carousel-img-simple.jpg",
+    "imgAlt": "Carousel image digital life",
     "buttonLabel": "View details"
   }
 ]

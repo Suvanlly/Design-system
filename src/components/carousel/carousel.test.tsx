@@ -23,7 +23,7 @@ describe("Carousel component", () => {
     test('it should render play/pause auto play button', () => {
       render(<Carousel carouselItems={items}  />);
   
-      const element = screen.getByRole("button", {name: "enable auto play"})
+      const element = screen.getByRole("button", {name: "pause auto play"})
       expect(element).toBeInTheDocument();
     })
   
@@ -44,7 +44,7 @@ describe("Carousel component", () => {
   
       fireEvent.click(rightArrowButton);
       const element = screen.getByRole("option", {
-        name: "Welcome to Digital NSW Welcome to Digital NSW More Information",
+        name: "Carousel image digital nsw Welcome to Digital NSW More Information",
       });
       expect(element).toBeInTheDocument();
     });
@@ -57,26 +57,9 @@ describe("Carousel component", () => {
   
       fireEvent.click(leftArrowButton);
       const element = screen.getByRole("option", {
-        name: "Bringing digital to life Bringing digital to life View details",
+        name: "Carousel image digital life Bringing digital to life View details",
       });
       expect(element).toBeInTheDocument();
     });
   })
-
-  // describe('Accessibility', () => {
-  //   test('it should back to previous slide, when user focus on back to previous slide button and type space key', async () => {
-  //     render(<Carousel carouselItems={items} />);
-  //     const leftArrowButton = screen.getByRole("button", {
-  //       name: "back to last slide",
-  //     });
-  //     fireEvent.focus(leftArrowButton);
-  //     fireEvent.keyDown(leftArrowButton, {key: 'Space', code: 'Space', charCode: 32})
-  //     await waitFor(() => {
-  //       const element = screen.getByRole("option", {
-  //         name: "Bringing digital to life Bringing digital to life View details",
-  //       });
-  //       expect(element).toBeVisible();
-  //     });
-  //   })
-  // })
 });
