@@ -80,6 +80,8 @@ Based on the reference on [Web Content Accessibility checklist](#https://www.w3.
 
 Therefore, by inputting desired intervals, users can customize the timing to their preference. The default setting of 2 seconds per slide can be easily modified, empowering users to optimize their carousel experience.
 
+![Product Name Screen Shot](./public/assets/readme/speed-interval.png)
+
 #### Content layout
 
 Flexibility in content layout was a paramount consideration during development. Users now have the freedom to choose whether the image is positioned on the left or right side of the carousel. This feature accommodates individual reading preferences, with some users favoring text placement on the left-hand side and others on the right-hand side.
