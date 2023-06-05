@@ -10,8 +10,8 @@ export const CarouselIndicator = ({
   updateIndex,
 }: CarouselIndicatorProps) => (
   <button
-    key={index}
     className="carousel__indicator"
+    aria-label={`carousel indicator ${index + 1}`}
     onClick={() => {
       updateIndex(index);
     }}

@@ -5,6 +5,7 @@ interface CarouselItemProps {
   currentIndex: number;
   imagePosition?: string;
   style?: string;
+  isAutoPlay: boolean;
   item: Item;
 }
 
@@ -13,6 +14,7 @@ export const CarouselItem = ({
   currentIndex,
   imagePosition = 'right',
   style = 'light',
+  isAutoPlay = true,
   item,
 }: CarouselItemProps) => (
   <div
@@ -21,7 +23,9 @@ export const CarouselItem = ({
     } ${style === 'light' ? "carousel__item--light" : "carousel__item--dark"}`}
     key={item.id}
     role="option"
-    aria-selected={index === currentIndex}
+    aria-live={isAutoPlay ? 'off' : 'polite'}
+    aria-hidden={index !== currentIndex}
+    aria-current={index === currentIndex}
   >
     <img className="carousel__item-img" src={item.img} alt={item.description} />
     <div className="carousel__item-text-panel">

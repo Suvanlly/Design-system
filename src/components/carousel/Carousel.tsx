@@ -50,13 +50,13 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
         style={{ transform: `translate(-${currentIndex * 100}%)` }}
       >
         {carouselItems.map((item, index) => (
-          <CarouselItem key={index} index={index} currentIndex={currentIndex} imagePosition={imagePosition} style={style} item={item} />
+          <CarouselItem key={index} index={index} currentIndex={currentIndex} imagePosition={imagePosition} style={style} isAutoPlay={isAutoPlay} item={item} />
         ))}
       </div>
       <div className="carousel__indicators-panel">
         <button
           className="carousel__arrow-button"
-          aria-label="previous button"
+          aria-label="back to last slide"
           onClick={() => {
             updateIndex(currentIndex - 1);
           }}
@@ -76,6 +76,7 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
             {isAutoPlay ? (
               <span
                 className="material-symbols-outlined"
+                aria-label="enable auto play"
                 onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 pause_circle_filled
@@ -83,6 +84,7 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
             ) : (
               <span
                 className="material-symbols-outlined"
+                aria-label="pause auto play"
                 onClick={() => setIsAutoPlay(!isAutoPlay)}
               >
                 play_circle
@@ -93,7 +95,7 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
 
         <button
           className="carousel__arrow-button"
-          aria-label="next button"
+          aria-label="go to next slide"
           onClick={() => {
             updateIndex(currentIndex + 1);
           }}
