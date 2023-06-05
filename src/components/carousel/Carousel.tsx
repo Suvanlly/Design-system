@@ -38,10 +38,8 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
     return () => {
       clearTimeout(timer);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isAutoPlay]);
-
-  // TODO need to be done by keyboard to move item
-  // Need to be read out by screen readers
 
   return (
     <div className="carousel" role="listbox" aria-label="Carousel">

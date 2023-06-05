@@ -1,3 +1,7 @@
+$color-primary: #1d69b4;
+$color-darkblue: #002664;
+$color-lightblue: #cbedfd;
+
 body {
   margin: 0;
   text-align: center;
@@ -73,11 +77,11 @@ body {
   }
 
   &--light {
-    background-color: rgb(203, 237, 253);
+    background-color: $color-lightblue;
   }
 
   &--dark {
-    background-color: #002664;
+    background-color: $color-darkblue;
   }
 
   @media (max-width: 992px) {
@@ -142,7 +146,7 @@ body {
 
 .carousel__item-info-button {
   font-weight: 900;
-  border: 1px solid #1d69b4;
+  border: 1px solid $color-primary;
   background-color: #fff;
   width: 150px;
   padding: 10px 20px;
@@ -150,7 +154,7 @@ body {
   cursor: pointer;
   &:hover {
     color: #fff;
-    background-color: #1d69b4;
+    background-color: $color-primary;
     transition: background-color 0.2s ease-out;
     border-color: #00153f;
   }
@@ -167,13 +171,13 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: #1d69b4;
+  color: $color-primary;
 }
 
 .carousel__indicator {
   border: none;
   cursor: pointer;
-  color: #1d69b4;
+  color: $color-primary;
 
   &--active {
     color: #cdd3d6;
