@@ -5,14 +5,23 @@
 ## Table of Content
 
 1. [Planning and building](#planning-and-building)
+
    1.1 [Evaluating the need for carousel component](#evaluating-the-need-for-carousel-component)
+
    1.2 [Planning for building the component](#planning-for-building-the-component)
+
 2. [Proposed Design](#proposed-design)
+
    2.1 [Theme styles](#theme-styles)
+
    2.2 [Autoplay](#autoplay)
+
    2.3 [Play speed](#play-speed)
+
    2.4 [Content layout](#content-layout)
+
    2.5 [Responsive design](#responsive-design)
+
 3. [Accessibility](#accessibility)
 4. [Testing](#Testing)
 5. [Storybook](#storybook)
@@ -55,6 +64,7 @@ To infuse dynamism into the website, I incorporated autoplay functionality withi
 > Some users might experience distraction or nausea from animated or moving content. If scrolling through a page causing elements to move or scrolling with backgrounds that move at a different rate than the foreground, there must be an option for the user to turn these off or the user may enable reduce motion preferences.
 
 ![Product Name Screen Shot](./public/assets/readme/pause-button.png)
+
 so I also developed the pause button for an option for user to choose. This optional feature allows users to disable autoplay if they find it distracting or uncomfortable, ensuring a personalized and inclusive browsing experience.
 
 ##### Play speed
@@ -75,7 +85,9 @@ Flexibility in content layout was a paramount consideration during development. 
 Recognizing the importance of accessibility, I dedicated effort to ensure responsive design across various screen sizes. By implementing the component's responsiveness, users can access and enjoy the carousel on devices of all types, ranging from mobiles and tablets to laptops. This comprehensive approach ensures an optimal user experience, particularly for individuals with low vision who frequently utilize mobile devices.
 The following figure is the overview of the component across different screen size.
 
-![Product Name Screen Shot](./public/assets/readme/responsive.png)
+<p align="center">
+  <img src="./public/assets/readme/responsive.png" alt="Sublime's custom image"/>
+</p>
 
 ## Accessibility
 
