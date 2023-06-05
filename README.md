@@ -34,24 +34,24 @@
 
 #### Evaluating the need for carousel component
 
-Upon reviewing the existing design system components, I didn't find the carousel component in the current design system. Recognizing the potential to enhance user experience, I have come up with the idea of building this component. I hope the carousel component can bring more dynamic, attractive and interactions with users for the digital NSW website.
+Upon reviewing the existing design system components, the carousel component is missing in the current design system. Recognizing the potential to enhance user experience, I have conceived the idea of developing this component. By introducing a carousel feature, we aim to infuse the digital NSW website with a sense of dynamism, visual appeal, and enhanced user interactions.
 
 #### Planning for building the component
 
-Three main objects for Carousel component is to achieve:
+Four main objects for Carousel component is to achieve:
 
 - Extensibility
 - Consistency
 - User-friendly
 - Responsive
 
-For the extensibility: In developing this component, my intention was to create a versatile and expandable solution. The component should be that provides for future growth based on systems design principle. The component should has the quality of being able to add new functionality and capabilities.
+For extensibility: In developing this component, my intention was to create a versatile and expandable solution. The component should provide future growth based on systems design principle. The component should has the quality of being able to add new functionality and capabilities.
 
-For the consistency: To ensure a cohesive visual experience, the carousel need to seamlessly integrate with the existing website styles. By harmonizing background colors, font styles, and layout, the component would match the styles of the exisiting website, and it should looks coherent across the other different elements. Then it will deliver a unified and high-quality user experience.
+For consistency: To ensure a cohesive visual experience, the carousel need to seamlessly integrate with the existing website styles. By harmonizing background colors, font styles, and layout, the component would match the styles of the exisiting website, and it should looks coherent across the other different elements. Then it will deliver a unified and high-quality user experience.
 
 For user-friendly: Catering to users of varying ages and abilities, including seniors and individuals with visual or hearing impairments, the carousel was designed with the objective of simplicity. It was crucial to strike a balance between functionality and ease of use, enabling effortless navigation and interaction for all user groups.
 
-For Responsive perspective: Recognizing the diverse range of devices utilized by website visitors, I prioritized responsive design principles. By ensuring the carousel's adaptability across different screen sizes, such as mobile, tablet, and laptop, users could enjoy a consistently optimal experience regardless of their chosen device.
+For Responsive: Recognizing the diverse range of devices utilized by website visitors, I prioritized responsive design principles. By ensuring the carousel's adaptability across different screen sizes, such as mobile, tablet, and laptop, users could enjoy a consistently optimal experience regardless of their chosen device.
 
 ## Proposed Design
 
@@ -173,7 +173,7 @@ This application requires [npm](https://www.npmjs.com/) to run.
 Please install the dependencies and start the application.
 
 ```sh
-npm i
+npm install
 npm start
 ```
 
@@ -183,6 +183,6 @@ To start Storybook.
 npm run stroybook
 ```
 
-## Learn More
+## Contact
 
 Please contact: sophiesun.au@gmail.com
