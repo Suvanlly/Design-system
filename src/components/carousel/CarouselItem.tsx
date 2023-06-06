@@ -23,10 +23,8 @@ export const CarouselItem = ({
     } ${style === 'light' ? "carousel__item--light" : "carousel__item--dark"}`}
     key={item.id}
     role="option"
-    aria-live={isAutoPlay ? 'off' : 'polite'}
     aria-selected={index === currentIndex}
     aria-hidden={index !== currentIndex}
-    aria-current={index === currentIndex}
   >
     <img className="carousel__item-img" src={item.img} alt={item.imgAlt} />
     <div className="carousel__item-text-panel">
