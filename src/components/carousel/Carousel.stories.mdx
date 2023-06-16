@@ -16,6 +16,10 @@ import { Carousel } from "./Carousel.tsx";
       options: ["light", "dark"],
       control: { type: "radio" },
     },
+    textSize: {
+      options: ["small", "medium", "large"],
+      control: { type: "radio" },
+    },
   }}
 />
 
@@ -30,6 +34,7 @@ export const CarouselTemplate = (args) => {
       intervalInSeconds: 2,
       imagePosition: "right",
       style: "light",
+      textSize: "medium",
       carouselItems: [
         {
           id: "58a860a4-0276-11ee-be56-0242ac120002",

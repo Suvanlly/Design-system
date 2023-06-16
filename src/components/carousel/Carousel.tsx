@@ -5,7 +5,7 @@ import { CarouselProps } from './Carousel.types'
 import "./styles.scss";
 
 
-export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style = 'light', carouselItems}: CarouselProps) => {
+export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style = 'light', textSize = 'medium', carouselItems}: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
@@ -48,7 +48,7 @@ export const Carousel = ({intervalInSeconds = 2, imagePosition = 'right', style 
         style={{ transform: `translate(-${currentIndex * 100}%)` }}
       >
         {carouselItems.map((item, index) => (
-          <CarouselItem key={index} index={index} currentIndex={currentIndex} imagePosition={imagePosition} style={style} isAutoPlay={isAutoPlay} item={item} />
+          <CarouselItem key={index} index={index} currentIndex={currentIndex} imagePosition={imagePosition} style={style} isAutoPlay={isAutoPlay} textSize={textSize} item={item} />
         ))}
       </div>
       <div className="carousel__indicators-panel">

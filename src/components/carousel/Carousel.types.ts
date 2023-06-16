@@ -2,6 +2,7 @@ export interface CarouselProps {
   intervalInSeconds?: number;
   imagePosition?: string;
   style?: string;
+  textSize?: string;
   carouselItems: Item[];
 }
 

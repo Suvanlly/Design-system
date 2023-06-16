@@ -5,16 +5,31 @@ interface CarouselItemProps {
   currentIndex: number;
   imagePosition?: string;
   style?: string;
+  textSize?: string;
   isAutoPlay: boolean;
   item: Item;
 }
+
+const handleButtonClick = () => {
+  const url = 'https://www.digital.nsw.gov.au/';
+  window.open(url, '_blank');
+}
+
+const styleFn = (textSize: string) => {
+  if (textSize === 'small') {
+    return { fontSize: '14px' };
+  }
+   else if (textSize === 'large') {
+    return { fontSize: '20px' };
+  }
+};
 
 export const CarouselItem = ({
   index,
   currentIndex,
   imagePosition = 'right',
   style = 'light',
-  isAutoPlay = true,
+  textSize = 'medium',
   item,
 }: CarouselItemProps) => (
   <div
@@ -28,8 +43,8 @@ export const CarouselItem = ({
   >
     <img className="carousel__item-img" src={item.img} alt={item.imgAlt} />
     <div className="carousel__item-text-panel">
-      <p className={`carousel__item-text ${style === 'light' ? "carousel__item-text--light" : "carousel__item-text--dark"}`} aria-label={item.description}>{item.description}</p>
-      <button className="carousel__item-info-button">{item.buttonLabel}</button>
+      <p className={`carousel__item-text ${style === 'light' ? "carousel__item-text--light" : "carousel__item-text--dark"}` } aria-label={item.description} style={styleFn(textSize)}>{item.description}</p>
+      <button className="carousel__item-info-button" onClick={handleButtonClick}>{item.buttonLabel}</button>
     </div>
   </div>
 );
